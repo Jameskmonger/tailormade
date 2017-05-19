@@ -1,7 +1,7 @@
 {
   "name": "tailormade",
   "version": "1.0.0",
-  "description": "Rip colours out of SASS",
+  "description": "Rip colours out of (S)CSS",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
