@@ -6,6 +6,7 @@ import * as yargs from "yargs";
 import format from "./format";
 import DESIGN_PROPERTIES from "./design-properties";
 const normalizeNewline = require('normalize-newline');
+const mkdirp = require("mkdirp");
 
 const args = 
     yargs.usage("Usage: $0 app.scss -s app.structural.scss -d app.design.scss -p 'color' 'background-color'")
@@ -23,16 +24,20 @@ const structuralPath = path.resolve(process.cwd(), args.s);
 const designPath = path.resolve(process.cwd(), args.d);
 const designProperties = args.p;
 
-const transform = (content: string, path: string, type: "design" | "structural") => {
-    fs.writeFile(
-        path,
-        format(content, { type, designProperties }),
-        (err) => {
-            if (err) throw err;
+const transform = (content: string, outputPath: string, type: "design" | "structural") => {
+    mkdirp(path.dirname(outputPath), (err) => {
+        if (err) throw err;
 
-            console.log(`Written ${type} output to ${path}`);
-        }
-    );
+        fs.writeFile(
+            outputPath,
+            format(content, { type, designProperties }),
+            (err) => {
+                if (err) throw err;
+
+                console.log(`Written ${type} output to ${outputPath}`);
+            }
+        );
+    });
 }
 
 fs.readFile(inputPath, (err: Error, data: Buffer) => {
