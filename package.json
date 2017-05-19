@@ -9,6 +9,9 @@
     "prepublish": "npm run build",
     "build": "tsc"
   },
+  "files": [
+    "/dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jameskmonger/tailormade.git"
