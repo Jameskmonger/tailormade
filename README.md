@@ -14,7 +14,7 @@ Given the following (very simple) code:
 }
 ```
 
-Running it through `tailormade` will give you two files:
+Running it through tailormade will give you two files:
 
 ```scss
 .hello {
@@ -39,23 +39,25 @@ For a more full example, see the `demo` directory.
 
 ## Usage
 
-Tailormade is extremely easy to use. Give it a file path for your source, a file path to output the structural styling to and a file path to output the design styling to.
+Tailormade is extremely easy to use. Give it a file path for your source and it will do the rest
 
 The following command below will process `app.scss`, place the structural code into `app.structural.scss` and the design code into `app.design.scss`.
 
-    $ tailormade app.scss -s app.structural.scss -d app.design.scss
+    $ tailormade app.scss
+
+You can provide output file paths (see options below), but for a file named `foo.bar`, tailormade will put the structural code into `foo.structural.bar` and the design code into `foo.design.bar`.
 
 ### Options
 
 #### `-s`
 
-File path to output the structural code to. This option is **required**.
+File path to output the structural code to. This option is **optional**.
 
     $ tailormade app.scss -s structural_output.scss
 
 #### `-d`
 
-File path to output the design code to. This option is **required**.
+File path to output the design code to. This option is **optional**.
 
     $ tailormade app.scss -d design_output.scss
 
