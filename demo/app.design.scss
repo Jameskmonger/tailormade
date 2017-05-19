@@ -1,9 +1,20 @@
 @import "foo";
 
 body {
-    padding: 0;
+    background: #fcfcfc;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222222;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 p {
-    padding: 0 10px;
+    color: #0F0f0F;
 }
