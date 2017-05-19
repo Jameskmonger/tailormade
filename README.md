@@ -45,8 +45,6 @@ The following command below will process `app.scss`, place the structural code i
 
     $ tailormade app.scss
 
-You can provide output file paths (see options below), but for a file named `foo.bar`, tailormade will put the structural code into `foo.structural.bar` and the design code into `foo.design.bar`.
-
 ### Options
 
 #### `-s`
@@ -54,6 +52,8 @@ You can provide output file paths (see options below), but for a file named `foo
 File path to output the structural code to. This option is **optional**.
 
     $ tailormade app.scss -s structural_output.scss
+
+If not given, a file named `app.scss` will have its structural output placed in `app.structural.scss`.
 
 #### `-d`
 
