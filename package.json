@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Rip colours out of (S)CSS",
   "main": "index.js",
+  "bin": "dist/index.js",
+  "preferGlobal": true,
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc"
