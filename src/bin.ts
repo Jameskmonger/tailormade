@@ -19,12 +19,7 @@ const args =
         .describe("p", "An array of properties used for design styling")
         .argv;
 
-const inputPath = path.resolve(process.cwd(), args._[0]);
-const structuralPath = path.resolve(process.cwd(), args.s);
-const designPath = path.resolve(process.cwd(), args.d);
-const designProperties = args.p;
-
-const transform = (content: string, outputPath: string, type: "design" | "structural") => {
+const transform = (content: string, outputPath: string, type: "design" | "structural", designProperties: Array<string>) => {
     mkdirp(path.dirname(outputPath), (err) => {
         if (err) throw err;
 
@@ -38,11 +33,16 @@ const transform = (content: string, outputPath: string, type: "design" | "struct
             }
         );
     });
-}
+};
+
+const inputPath = path.resolve(process.cwd(), args._[0]);
+const structuralPath = path.resolve(process.cwd(), args.s);
+const designPath = path.resolve(process.cwd(), args.d);
+const designProperties = args.p;
 
 fs.readFile(inputPath, (err: Error, data: Buffer) => {
     const content = normalizeNewline(data.toString());
 
-    transform(content, structuralPath, "structural");
-    transform(content, designPath, "design");
+    transform(content, structuralPath, "structural", designProperties);
+    transform(content, designPath, "design", designProperties);
 });
