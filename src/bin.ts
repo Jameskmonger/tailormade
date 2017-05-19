@@ -2,47 +2,17 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import * as yargs from "yargs";
-import format from "./format";
-import DESIGN_PROPERTIES from "./design-properties";
 const normalizeNewline = require('normalize-newline');
-const mkdirp = require("mkdirp");
+import { output, args } from "./util";
 
-const args = 
-    yargs.usage("Usage: $0 app.scss -s app.structural.scss -d app.design.scss -p 'color' 'background-color'")
-        .demandCommand(1)
-        .demandOption(["s", "d"])
-        .array("p")
-        .default("p", DESIGN_PROPERTIES)
-        .describe("s", "Relative file path for the structural style output")
-        .describe("d", "Relative file path for the design style output")
-        .describe("p", "An array of properties used for design styling")
-        .argv;
-
-const transform = (content: string, outputPath: string, type: "design" | "structural", designProperties: Array<string>) => {
-    mkdirp(path.dirname(outputPath), (err) => {
-        if (err) throw err;
-
-        fs.writeFile(
-            outputPath,
-            format(content, { type, designProperties }),
-            (err) => {
-                if (err) throw err;
-
-                console.log(`Written ${type} output to ${outputPath}`);
-            }
-        );
-    });
-};
-
-const inputPath = path.resolve(process.cwd(), args._[0]);
-const structuralPath = path.resolve(process.cwd(), args.s);
-const designPath = path.resolve(process.cwd(), args.d);
-const designProperties = args.p;
+const inputPath = path.resolve(process.cwd(), args.input);
+const structuralPath = path.resolve(process.cwd(), args.structuralOutput);
+const designPath = path.resolve(process.cwd(), args.designOutput);
+const designProperties = args.designProperties;
 
 fs.readFile(inputPath, (err: Error, data: Buffer) => {
     const content = normalizeNewline(data.toString());
 
-    transform(content, structuralPath, "structural", designProperties);
-    transform(content, designPath, "design", designProperties);
+    output(content, structuralPath, "structural", designProperties);
+    output(content, designPath, "design", designProperties);
 });

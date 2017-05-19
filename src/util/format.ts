@@ -1,4 +1,4 @@
-import * as sass from "./sass/";
+import * as sass from "../sass/";
 
 const getPredicate = (type: "design" | "structural", designProperties: Array<string>) => {
     const designPredicate = (prop: string) => designProperties.indexOf(prop) === -1;
