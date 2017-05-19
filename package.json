@@ -1,0 +1,36 @@
+{
+  "name": "tailormade",
+  "version": "1.0.0",
+  "description": "Rip colours out of SASS",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameskmonger/tailormade.git"
+  },
+  "keywords": [
+    "sass",
+    "colour",
+    "rebrand"
+  ],
+  "author": "James Monger <jameskmonger@hotmail.co.uk> (http://jamesmonger.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameskmonger/tailormade/issues"
+  },
+  "homepage": "https://github.com/jameskmonger/tailormade#readme",
+  "dependencies": {
+    "@types/node": "^7.0.18",
+    "@types/yargs": "^6.6.0",
+    "mkdirp": "^0.5.1",
+    "normalize-newline": "^3.0.0",
+    "query-ast": "^1.0.1",
+    "scss-parser": "^1.0.0",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}

@@ -1,0 +1,29 @@
+@import "foo";
+
+body {
+    margin: 0;
+    background: #fcfcfc;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222222;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 12px;
+    &.main {
+        text-decoration: underline;
+    }
+}
+
+p {
+    color: #0F0f0F;
+}
