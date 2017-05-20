@@ -1,6 +1,6 @@
 {
   "name": "tailormade",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Rip colours out of (S)CSS",
   "main": "index.js",
   "bin": "dist/bin.js",
