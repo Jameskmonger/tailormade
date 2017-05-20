@@ -2,8 +2,8 @@ import * as yargs from "yargs";
 import DESIGN_PROPERTIES from "../design-properties";
 import insertBeforeExtension from "./insert-before-extension";
 
-const args = 
-    yargs.usage("Usage: $0 app.scss -s app.structural.scss -d app.design.scss -p 'color' 'background-color'")
+const args =
+    yargs.usage("Usage: $0 app.scss -s app.structural.scss -d app.design.scss -p color background-color")
         .demandCommand(1)
         .array("p")
         .default("p", DESIGN_PROPERTIES)
